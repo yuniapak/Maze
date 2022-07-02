@@ -1,12 +1,14 @@
 //DOM calls and global variables
 
-const lives = document.querySelector('#lives')
-
+const lives = document.querySelector('.lives')
+const live1 = document.querySelector('#Heart1')
+const live2 = document.querySelector('#Heart2')
+const live3 = document.querySelector('#Heart3')
 const board = document.querySelector('#board')
 const gridSq = document.querySelectorAll('.grid')
 //action sq
 const liveSq = document.querySelectorAll('#lv')
-const finSq = document.querySelector('#fin')
+//const finSq = document.querySelector('#fin')
 
 //windows
 
@@ -34,36 +36,55 @@ let gameBoard = [
 ]
 //////////////////////////
 //Functions
+
 //game loop
-// const game = () = {
-//     console.log('game')
-//     setTimeout(game, 1000 / gameSpeed)
-// }
-//  game()
+const game = () => {
+  console.log('game')
+  setTimeout(game, 1000 / gameSpeed)
+}
+//game()
 //character speed
+// const characterSpeed = () =>{
+//     character.style.top = character.style.top +
+// }
 
 //game logic
 const win = () => {
   if (
-    character.style.top === finSq.style.top ||
-    character.style.left === finSq.style.left
+    character.style.top ===  ||
+    character.style.left === 
   ) {
-    console.log(win)
+    console.log('win')
 
     winWindow.style.display = 'block'
     //window.removeEventListener('keyup', (e))
+  }else if(){
+    //for try again
+    console.log('another try')
+    failWindow.style.display = "block"
+    live3.style.display = 'none'
+    if(live3.style.display = 'none' ){
+    live2.style.display = 'none'
+    }else if(live3.style.display = 'none' && live2.style.display = 'none'){
+        //loose
+        live1.style.display = 'none'
+        //button to start from the beggining with 3 hearts
+    }
+  }else{
+    console.log('error!')
   }
 }
 
 ////////////////////////////
 //EventListeners
 //event listener for buttons to move character
+//start position
 window.addEventListener('load', () => {
-  character.style.left = 520 + 'px'
-  character.style.top = 430 + 'px'
+  character.style.left = -20 + 'px'
+  character.style.top = 160 + 'px'
   character.style.position = 'abosolute'
 })
-//up
+//button key
 window.addEventListener('keyup', (e) => {
   switch (e.key) {
     case 'ArrowLeft':
