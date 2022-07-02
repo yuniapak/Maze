@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body{
+    background: rgb(58, 39, 58);
+    color:rgb(160, 135, 160);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    font-family: 'VT323';
+    flex-direction: column;
+}
+h1{
+    font-size: 90px;
+    
+}
+#lives{
+    position: absolute;
+    top:150px
+}
+.heart{
+   
+    width: 60px;
+    height: 60px;
+
+}
+#board{
+    position:relative;
+    display: grid;
+    grid-template-columns: 70px 70px 70px 70px 70px 70px;
+    grid-template-rows: 70px 70px 70px 70px 70px 70px;
+}
+.grid{
+border : none;
+}
+#lv{ 
+    border: 5px solid rgb(160, 135, 160);
+    background:rgba(160, 135, 160, 0.7)
+}
+.window{
+    color: rgb(58, 39, 58);
+    background:rgb(160, 135, 160);
+    position: absolute;
+    font-size: 15px;
+    top:290px;
+    padding: 30px;
+    border: 10px solid rgba(58, 39, 58, 0.5);
+    display:none;
+}
+button{
+    color: rgba(210, 178, 210, 0.5);
+    background-color: rgb(58, 39, 58);
+    font-family: 'VT323';
+    font-size: 25px;
+}
