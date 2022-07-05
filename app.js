@@ -21,56 +21,55 @@ const againButton = document.querySelector('#again')
 
 //character
 const character = document.querySelector('#character')
-//let moveCharct = 40
-
-const moveCharct = (e) => {
-    for 
-    //set as speed second + 40px move 
-}
+character.style.gridRow = 3
+character.style.gridColumn = 1
+const wall = document.querySelectorAll('#wall')
 //game speed
-
+let winRow = 4
+let winColumn = 7
 //velocity for moving character
 
 //////////////////////////
 //Functions
-//Creating grid
 
-// let exitCombination = [boardGrid[2[0]], boardGrid[2[1]], boardGrid[2[2]], boardGrid[3[2]], boardGrid[4[2]], boardGrid[4[3]], boardGrid[4[4]], boardGrid[3[4]], boardGrid[3[5]], boardGrid[3[6]]]
+const startGame = () => {
+  startWindow.style.display = 'block'
+}
+startGame()
+
 //game logic
-const win = () => {
-  if (character.style.top === winCombination || character.style.left) {
+const winFunction = () => {
+  if (character.style.gridRow === 4 || character.style.gridColumn === 7) {
     console.log('win')
 
     winWindow.style.display = 'block'
-    // window.removeEventListener('keyup', (e))
-    //   }else if(gridSq){
-    //     //for try again
-    //     console.log('another try')
-    //     failWindow.style.display = "block"
-    //     live3.style.display = 'none'
-    //     if(live3.style.display = 'none'){
-    //     live2.style.display = 'none'
-    //     }else if(live3.style.display = 'none' || live2.style.display = 'none' ){
-    //         //loose
-    //         live1.style.display = 'none'
-    //         //button to start from the beggining with 3 hearts
-    //     }
-    //   }else{
-    //     console.log('error!')
+  } else if (
+    character.style.gridRow === wall &&
+    character.style.gridColumn === wall
+  ) {
+    console.log('hit')
+  } else {
+    console.log('error')
   }
 }
-
 ////////////////////////////
 //EventListeners
 //creating board
+
+// window.addEventListener('load', () => {
+//   character.style.gridRow = 3
+//   character.style.gridColumn = 1
+//   character.style.position = 'abosolute'
+// })
 let boardGrid = [
   [1, 2, 3, 4, 5, 6, 7],
-  [8, 9, 10, 11, 12, 13, 14],
-  [0, 0, 0, 18, 19, 20, 21],
-  [22, 23, 0, 25, 0, 0, 0],
+  [8, 9, 0, 11, 12, 13, 14],
+  [0, 0, 0, 0, 19, 20, 21],
+  [22, 23, 0, 25, 0, 0, 'f'],
   [29, 30, 0, 0, 0, 34, 35],
   [36, 37, 38, 39, 40, 41, 42]
 ]
+
 window.addEventListener('load', () => {
   for (let i of boardGrid) {
     for (let j of i) {
@@ -82,44 +81,51 @@ window.addEventListener('load', () => {
       if (j === 0) {
         square.id = 'maze'
         let mazeSq = document.querySelectorAll('#maze')
-      } else if (j !== 0) {
-        hit = () => {
-          console.log('hit')
-        }
+      } else if (j === 'f') {
+        square.id = 'maze'
+      } else if (j != 0) {
+        square.id = 'wall'
+      } else {
+        console.log('error')
       }
-
-      //   let square = document.querySelectorAll('.square')
-      //   maze[k] === (square.class = 'maze')
     }
   }
 })
 
 //event listener for buttons to move character
 //start position
-window.addEventListener('load', () => {
-  character.style.left = -20 + 'px'
-  character.style.top = 180 + 'px'
-  character.style.position = 'abosolute'
-})
+
 //button key
 
-window.addEventListener('keydown', (e) => {
-  switch (e.key) {
-    case 'ArrowLeft':
-      character.style.left = parseInt(character.style.left) - moveCharct + 'px'
+const movingPea = () => {
+  let moveCharct = 1
+  window.addEventListener('keyup', (e) => {
+    if (e.key === 'ArrowLeft') {
+      character.style.gridColumn =
+        parseInt(character.style.gridColumn) - moveCharct
+    } else if (e.key === 'ArrowRight') {
+      character.style.gridColumn =
+        parseInt(character.style.gridColumn) + moveCharct
+    } else if (e.key === 'ArrowUp') {
+      character.style.gridRow = parseInt(character.style.gridRow) - moveCharct
+    } else if (e.key === 'ArrowDown') {
+      character.style.gridRow = parseInt(character.style.gridRow) + moveCharct
+    } else {
+      console.log('not working')
+    }
+    console.log('row ' + character.style.gridRow)
+    console.log('column ' + character.style.gridColumn)
+    winFunction()
+  })
+}
 
-      break
-    case 'ArrowRight':
-      character.style.left = parseInt(character.style.left) + moveCharct + 'px'
-      break
-    case 'ArrowUp':
-      character.style.top = parseInt(character.style.top) - moveCharct + 'px'
-      break
-    case 'ArrowDown':
-      character.style.top = parseInt(character.style.top) + moveCharct + 'px'
-      break
-  }
-  //win()
-})
-
+interval = setInterval(movingPea(), 1000)
+const changemove = () => {
+  clearInterval(interval)
+}
 //again button if lives still there keep on the lvl else start from lvl 1 lives back
+
+//startButton
+startButton.addEventListener('click', () => {
+  startWindow.style.display = 'none'
+})

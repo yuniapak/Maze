@@ -23,11 +23,12 @@ h1{
 
 }
 #character{
-    width: 60px;
-    height: 60px;
     position: absolute;
+    z-index: 1;
     /*top: 430px;
     left: 520px;*/
+        width: 60px;
+    height: 60px;
 
 }
 :root{
@@ -50,6 +51,10 @@ h1{
     border: 1px solid rgba(58, 39, 58,0.3);
     text-align: center;
 }
+#wall{
+    border: 1px solid rgba(58, 39, 58,0.3);
+    z-index:2;
+}
 #maze{
     background-color: rgb(58, 39, 58);
 }
@@ -68,15 +73,19 @@ height: 80px;
     color: rgb(58, 39, 58);
     background:rgb(160, 135, 160);
     position: absolute;
-    font-size: 15px;
+    font-size: 30px;
     top:290px;
     padding: 30px;
     border: 10px solid rgba(58, 39, 58, 0.5);
     display:none;
+    z-index: 3;
+    height:300px;
+    width:300px;
+    align-items: center;
 }
 button{
     color: rgba(210, 178, 210, 0.5);
     background-color: rgb(58, 39, 58);
     font-family: 'VT323';
-    font-size: 25px;
+    font-size: 35px;
 }
