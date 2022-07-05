@@ -21,7 +21,12 @@ const againButton = document.querySelector('#again')
 
 //character
 const character = document.querySelector('#character')
-let moveCharct = 40
+//let moveCharct = 40
+
+const moveCharct = (e) => {
+    for 
+    //set as speed second + 40px move 
+}
 //game speed
 
 //velocity for moving character
@@ -58,39 +63,31 @@ const win = () => {
 ////////////////////////////
 //EventListeners
 //creating board
+let boardGrid = [
+  [1, 2, 3, 4, 5, 6, 7],
+  [8, 9, 10, 11, 12, 13, 14],
+  [0, 0, 0, 18, 19, 20, 21],
+  [22, 23, 0, 25, 0, 0, 0],
+  [29, 30, 0, 0, 0, 34, 35],
+  [36, 37, 38, 39, 40, 41, 42]
+]
 window.addEventListener('load', () => {
-  let boardGrid = [
-    [1, 2, 3, 4, 5, 6, 7],
-    [8, 9, 10, 11, 12, 13, 14],
-    [15, 16, 17, 18, 19, 20, 21],
-    [22, 23, 24, 25, 26, 27, 28],
-    [29, 30, 31, 32, 33, 34, 35],
-    [36, 37, 38, 39, 40, 41, 42]
-  ]
-  let maze = [
-    boardGrid[[2][0]],
-    boardGrid[[2][1]],
-    boardGrid[[2][2]],
-    boardGrid[[3][2]],
-    boardGrid[[4][2]],
-    boardGrid[[4][3]],
-    boardGrid[[4][4]],
-    boardGrid[[3][4]],
-    boardGrid[[3][5]],
-    boardGrid[[3][6]]
-  ]
   for (let i of boardGrid) {
     for (let j of i) {
       let square = document.createElement('div')
       square.innerHTML = j
       square.className = 'square'
       board.appendChild(square)
-      board.appendChild(character)
-      for (let k = 0; k < maze.length; k++) {
-        if (boardGrid[[i][j]] === maze[k]) {
-          square.id = 'maze'
+      //board.appendChild(character)
+      if (j === 0) {
+        square.id = 'maze'
+        let mazeSq = document.querySelectorAll('#maze')
+      } else if (j !== 0) {
+        hit = () => {
+          console.log('hit')
         }
       }
+
       //   let square = document.querySelectorAll('.square')
       //   maze[k] === (square.class = 'maze')
     }

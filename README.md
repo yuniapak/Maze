@@ -1,8 +1,24 @@
-# Maze
+# Maze game
+
+## For project 1
 
 Game for project1
-Trello link with wireframe in it :
-https://trello.com/b/NWIfagnk/maze
+
+#### Trello link with wireframe in it :
+
+[TrelloBoard](https://trello.com/b/NWIfagnk/maze)
+
+### **_*Description*_**
+
+- Maze game starts with a Start banner window
+- After click start we see maze
+- Control of the character work through arrow buttons
+- first click triggers charaxter constant move in one direction
+- Goals: not to hit wall and get to the finish line
+- Every hit = 'start again' to restart lvl and cost you one 'heart'
+  ![Image](/322863-200%20copy.png)
+- If you out of 'hearts' well we can start from the beggining with 3 lives
+  ![Image](/IMG_0275.GIF)
 
 # materials:
 
