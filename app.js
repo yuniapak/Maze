@@ -5,6 +5,8 @@ const live1 = document.querySelector('#Heart1')
 const live2 = document.querySelector('#Heart2')
 const live3 = document.querySelector('#Heart3')
 
+const lvl = document.querySelector('h4')
+
 //Board and element with in
 const board = document.querySelector('#board')
 
@@ -18,33 +20,16 @@ const failWindow = document.querySelector('#fail')
 
 const startButton = document.querySelector('#start')
 const againButton = document.querySelector('#again')
-
+const nextLvlButton = document.querySelector('#nextLvl')
 //character
 const character = document.querySelector('#character')
 character.style.gridRow = 3
 character.style.gridColumn = 1
 
-// const finale = document.querySelector('#finale')
-
-//grid
-
-//fin.innerHTML = document.querySelector('#finale')
-//game speed
+//win Grid
 let winRow = 4
 let winColumn = 7
 
-//velocity for moving character
-
-//////////////////////////
-//Functions
-
-const startGame = () => {
-  startWindow.style.display = 'block'
-}
-startGame()
-
-////////////////////////////
-//EventListeners
 //creating board
 
 let boardGrid = [
@@ -78,13 +63,8 @@ const makeGrid = () => {
 makeGrid()
 let mazeSq = document.querySelectorAll('#maze')
 let wall = document.querySelectorAll('#wall')
-// console.log(wall)
-// wall.forEach((wallsq) => {
-//   wallsq.innerText = '100'
-//   //   wallsq.style.opacity = 0
-// })
 let fin = document.querySelector('#fin')
-//event listener for buttons to move character
+
 //Heart count
 
 const hearts = () => {
@@ -148,9 +128,8 @@ const winFunction = () => {
     console.log('error1', character.style.gridRow, character.style.gridColumn)
   }
 }
-//button key
+//Button key
 
-//const movingPea = () => {
 let moveCharct = 1
 window.addEventListener('keyup', (e) => {
   if (e.key === 'ArrowLeft') {
@@ -171,12 +150,6 @@ window.addEventListener('keyup', (e) => {
   console.log('column ' + character.style.gridColumn)
 })
 
-//}
-//movingPea()
-// interval = setInterval(movingPea(), 1000)
-// const changemove = () => {
-//   clearInterval(interval)
-// }
 //again button if lives still there keep on the lvl else start from lvl 1 lives back
 
 //startButton
@@ -188,4 +161,9 @@ againButton.addEventListener('click', () => {
   failWindow.style.display = 'none'
   character.style.gridRow = 3
   character.style.gridColumn = 1
+})
+nextLvlButton.addEventListener('click', () => {
+  winWindow.style.display = 'none'
+  board.style.display = 'none'
+  lvl.innerText = 'Level 2'
 })
