@@ -85,8 +85,21 @@ let wall = document.querySelectorAll('#wall')
 // })
 let fin = document.querySelector('#fin')
 //event listener for buttons to move character
-//winFunction
+//Heart count
 
+const hearts = () => {
+  if (live3.style.display != 'none') {
+    live3.style.display = 'none'
+  } else if (live3.style.dispaly != 'block') {
+    live2.style.display = 'none'
+  } else if (live2.style.display === 'none') {
+    live1.style.display === 'none'
+  } else {
+    console.log('something went wrong')
+  }
+}
+
+//win Function
 const winFunction = () => {
   if (
     parseInt(character.style.gridColumn) === winColumn &&
@@ -95,12 +108,42 @@ const winFunction = () => {
     console.log('win')
     winWindow.style.display = 'block'
   } else if (
-    parseInt(character.style.gridColumn) === 1 &&
-    parseInt(character.style.gridRow) === 2
+    (parseInt(character.style.gridColumn) === 1 &&
+      parseInt(character.style.gridRow) === 2) ||
+    (parseInt(character.style.gridColumn) === 1 &&
+      parseInt(character.style.gridRow) === 4) ||
+    (parseInt(character.style.gridColumn) === 2 &&
+      parseInt(character.style.gridRow) === 2) ||
+    (parseInt(character.style.gridColumn) === 2 &&
+      parseInt(character.style.gridRow) === 4) ||
+    (parseInt(character.style.gridColumn) === 1 &&
+      parseInt(character.style.gridRow) === 4) ||
+    (parseInt(character.style.gridColumn) === 3 &&
+      parseInt(character.style.gridRow) === 1) ||
+    (parseInt(character.style.gridColumn) === 3 &&
+      parseInt(character.style.gridRow) === 6) ||
+    (parseInt(character.style.gridColumn) === 4 &&
+      parseInt(character.style.gridRow) === 2) ||
+    (parseInt(character.style.gridColumn) === 4 &&
+      parseInt(character.style.gridRow) === 4) ||
+    (parseInt(character.style.gridColumn) === 4 &&
+      parseInt(character.style.gridRow) === 6) ||
+    (parseInt(character.style.gridColumn) === 5 &&
+      parseInt(character.style.gridRow) === 3) ||
+    (parseInt(character.style.gridColumn) === 5 &&
+      parseInt(character.style.gridRow) === 6) ||
+    (parseInt(character.style.gridColumn) === 6 &&
+      parseInt(character.style.gridRow) === 3) ||
+    (parseInt(character.style.gridColumn) === 6 &&
+      parseInt(character.style.gridRow) === 5) ||
+    (parseInt(character.style.gridColumn) === 7 &&
+      parseInt(character.style.gridRow) === 3) ||
+    (parseInt(character.style.gridColumn) === 7 &&
+      parseInt(character.style.gridRow) === 5)
   ) {
+    hearts()
     console.log('hit', character.style.gridRow, character.style.gridColumn)
     failWindow.style.display = 'block'
-    live3.style.display = 'none'
   } else {
     console.log('error1', character.style.gridRow, character.style.gridColumn)
   }
