@@ -15,12 +15,13 @@ const board = document.querySelector('#board')
 const startWindow = document.querySelector('#start-window')
 const winWindow = document.querySelector('#win')
 const failWindow = document.querySelector('#fail')
-
+const lastWindow = document.querySelector('#againWindow')
 //buttons
 
 const startButton = document.querySelector('#start')
 const againButton = document.querySelector('#again')
 const nextLvlButton = document.querySelector('#nextLvl')
+
 //character
 const character = document.querySelector('#character')
 character.style.gridRow = 3
@@ -68,12 +69,13 @@ let fin = document.querySelector('#fin')
 //Heart count
 
 const hearts = () => {
-  if (live3.style.display != 'none') {
+  if (live1.style.display != 'none') {
+    live1.style.display = 'none'
+  } else if (live2.style.display === 'none' && live1.style.display === 'none') {
     live3.style.display = 'none'
-  } else if (live3.style.dispaly != 'block') {
+    lastWindow.style.display = 'block'
+  } else if (live1.style.dispaly != 'block') {
     live2.style.display = 'none'
-  } else if (live2.style.display === 'none') {
-    live1.style.display === 'none'
   } else {
     console.log('something went wrong')
   }
@@ -166,4 +168,61 @@ nextLvlButton.addEventListener('click', () => {
   winWindow.style.display = 'none'
   board.style.display = 'none'
   lvl.innerText = 'Level 2'
+})
+///LEVEL 2/////////////////
+const board1 = document.querySelector('#board1')
+const character1 = document.querySelector('#character1')
+// character1.style.gridColumn = 1
+// character1.style.gridRow = 4
+//creating board
+
+let boardGrid1 = [
+  [1, 2, 3, 4, 5, 6, 7, 8],
+  [9, 0, 0, 0, 0, 0, 0, 16],
+  [17, 0, 19, 20, 0, 22, 23, 24],
+  [0, 0, 0, 28, 0, 30, 31, 32],
+  [33, 0, 35, 0, 0, 38, 0, 0],
+  [41, 42, 43, 0, 45, 46, 0, 48],
+  [49, 50, 51, 0, 0, 0, 0, 56]
+]
+const makeGridLvl2 = () => {
+  for (let i of boardGrid1) {
+    for (let j of i) {
+      let square1 = document.createElement('div')
+      square1.innerHTML = j
+      square1.className = 'square1'
+      board1.appendChild(square1)
+      //board.appendChild(character)
+      if (j === 0) {
+        square1.id = 'maze1'
+      } else if (j === 'fin1') {
+        square1.id = 'fin1'
+      } else {
+        square1.id = 'wall1'
+      }
+    }
+  }
+}
+makeGridLvl2()
+
+character1.style.gridColumn = 1
+character1.style.gridRow = 4
+let moveCharct1 = 1
+window.addEventListener('keyup', (e) => {
+  if (e.key === 'ArrowLeft') {
+    character1.style.gridColumn =
+      parseInt(character1.style.gridColumn) - moveCharct1
+  } else if (e.key === 'ArrowRight') {
+    character1.style.gridColumn =
+      parseInt(character1.style.gridColumn) + moveCharct1
+  } else if (e.key === 'ArrowUp') {
+    character1.style.gridRow = parseInt(character1.style.gridRow) - moveCharct1
+  } else if (e.key === 'ArrowDown') {
+    character1.style.gridRow = parseInt(character1.style.gridRow) + moveCharct1
+  } else {
+    console.log('not working')
+  }
+  //winFunction1()
+  console.log('row ' + character1.style.gridRow)
+  console.log('column ' + character1.style.gridColumn)
 })

@@ -64,6 +64,12 @@ h4{
     height: 60px;
 
 }
+#character1{
+    position:absolute;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+}
 :root{
     --grid-columns: 1;
     --grid-rows: 1;
@@ -79,7 +85,23 @@ h4{
     margin: 0 0 50px 0;
     color: white;
 }
+#board1{
+    position:relative;
+    display: grid;
+    height:500px;
+    width:500px;
+    grid-template-columns: auto auto auto auto auto auto auto auto ;
+    border: 15px solid rgb(117, 146, 118);
+    background: rgb(160, 135, 160);
+    margin: 0 0 50px 0;
+    color: white;
+}
 .square{
+    padding: 1em;
+    border: 1px solid rgba(58, 39, 58,0.3);
+    text-align: center;
+}
+.square1{
     padding: 1em;
     border: 1px solid rgba(58, 39, 58,0.3);
     text-align: center;
@@ -90,7 +112,15 @@ h4{
     background:rgb(160, 135, 160);
     grid-area: auto / auto / auto /auto;
 }
+#wall1{
+    border: 1px solid rgba(58, 39, 58,0.3);
+  
+    background:rgb(160, 135, 160);
+}
 #maze{
+    background: rgb(58, 39, 58);
+}
+#maze1{
     background: rgb(58, 39, 58);
 }
 #fin{
