@@ -167,6 +167,7 @@ nextLvlButton.addEventListener('click', () => {
   lvl.innerText = 'Level 2'
   character1.style.gridColumn = 1
   character1.style.gridRow = 4
+  board1.style.display = 'grid'
   lvl2Move()
 })
 
