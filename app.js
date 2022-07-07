@@ -10,15 +10,14 @@ const lvl = document.querySelector('h4')
 //Board and element with in
 const board = document.querySelector('#board')
 
+//board.style.display = 'none'
 //windows
 
-const startWindow = document.querySelector('#start-window')
 const winWindow = document.querySelector('#win')
 const failWindow = document.querySelector('#fail')
 const lastWindow = document.querySelector('#againWindow')
 //buttons
 
-const startButton = document.querySelector('#start')
 const againButton = document.querySelector('#again')
 const nextLvlButton = document.querySelector('#nextLvl')
 
@@ -89,6 +88,7 @@ const winFunction = () => {
   ) {
     console.log('win')
     winWindow.style.display = 'block'
+    // return winFunction
   } else if (
     (parseInt(character.style.gridColumn) === 1 &&
       parseInt(character.style.gridRow) === 2) ||
@@ -152,28 +152,38 @@ window.addEventListener('keyup', (e) => {
   console.log('column ' + character.style.gridColumn)
 })
 
-//again button if lives still there keep on the lvl else start from lvl 1 lives back
-
-//startButton
-startButton.addEventListener('click', () => {
-  startWindow.style.display = 'none'
-})
 //playAgain button
 againButton.addEventListener('click', () => {
   failWindow.style.display = 'none'
   character.style.gridRow = 3
   character.style.gridColumn = 1
 })
+
+//next Level button
 nextLvlButton.addEventListener('click', () => {
   winWindow.style.display = 'none'
   board.style.display = 'none'
+  character.style.display = 'none'
   lvl.innerText = 'Level 2'
+  character1.style.gridColumn = 1
+  character1.style.gridRow = 4
+  lvl2Move()
 })
+
 ///LEVEL 2/////////////////
+
 const board1 = document.querySelector('#board1')
-const character1 = document.querySelector('#character1')
-// character1.style.gridColumn = 1
-// character1.style.gridRow = 4
+const character1 = document.querySelector('#characterLvl2')
+
+character1.style.gridColumn = 1
+character1.style.gridRow = 4
+//windows for lvl 2
+const winWindowLvl2 = document.querySelector('#winLevel2')
+const failWindowLvl2 = document.querySelector('#failLevel2')
+
+//buttons
+const againButtonLvl2 = document.querySelector('#againLevel2')
+
 //creating board
 
 let boardGrid1 = [
@@ -192,7 +202,7 @@ const makeGridLvl2 = () => {
       square1.innerHTML = j
       square1.className = 'square1'
       board1.appendChild(square1)
-      //board.appendChild(character)
+      //board.appendChild(character1)
       if (j === 0) {
         square1.id = 'maze1'
       } else if (j === 'fin1') {
@@ -205,24 +215,99 @@ const makeGridLvl2 = () => {
 }
 makeGridLvl2()
 
-character1.style.gridColumn = 1
-character1.style.gridRow = 4
-let moveCharct1 = 1
-window.addEventListener('keyup', (e) => {
-  if (e.key === 'ArrowLeft') {
-    character1.style.gridColumn =
-      parseInt(character1.style.gridColumn) - moveCharct1
-  } else if (e.key === 'ArrowRight') {
-    character1.style.gridColumn =
-      parseInt(character1.style.gridColumn) + moveCharct1
-  } else if (e.key === 'ArrowUp') {
-    character1.style.gridRow = parseInt(character1.style.gridRow) - moveCharct1
-  } else if (e.key === 'ArrowDown') {
-    character1.style.gridRow = parseInt(character1.style.gridRow) + moveCharct1
+const winFuctionLvl2 = () => {
+  if (
+    parseInt(character1.style.gridColumn) === 8 &&
+    parseInt(character1.style.gridRow) === 5
+  ) {
+    console.log('lvl2 win')
+    winWindowLvl2.style.display = 'block'
+  } else if (
+    (parseInt(character1.style.gridColumn) === 1 &&
+      parseInt(character1.style.gridRow) === 3) ||
+    (parseInt(character1.style.gridColumn) === 1 &&
+      parseInt(character1.style.gridRow) === 5) ||
+    (parseInt(character1.style.gridColumn) === 2 &&
+      parseInt(character1.style.gridRow) === 1) ||
+    (parseInt(character1.style.gridColumn) === 2 &&
+      parseInt(character1.style.gridRow) === 6) ||
+    (parseInt(character1.style.gridColumn) === 3 &&
+      parseInt(character1.style.gridRow) === 1) ||
+    (parseInt(character1.style.gridColumn) === 3 &&
+      parseInt(character1.style.gridRow) === 3) ||
+    (parseInt(character1.style.gridColumn) === 3 &&
+      parseInt(character1.style.gridRow) === 5) ||
+    (parseInt(character1.style.gridColumn) === 3 &&
+      parseInt(character1.style.gridRow) === 6) ||
+    (parseInt(character1.style.gridColumn) === 3 &&
+      parseInt(character1.style.gridRow) === 7) ||
+    (parseInt(character1.style.gridColumn) === 4 &&
+      parseInt(character1.style.gridRow) === 1) ||
+    (parseInt(character1.style.gridColumn) === 4 &&
+      parseInt(character1.style.gridRow) === 3) ||
+    (parseInt(character1.style.gridColumn) === 4 &&
+      parseInt(character1.style.gridRow) === 4) ||
+    (parseInt(character1.style.gridColumn) === 5 &&
+      parseInt(character1.style.gridRow) === 1) ||
+    (parseInt(character1.style.gridColumn) === 5 &&
+      parseInt(character1.style.gridRow) === 6) ||
+    (parseInt(character1.style.gridColumn) === 6 &&
+      parseInt(character1.style.gridRow) === 1) ||
+    (parseInt(character1.style.gridColumn) === 6 &&
+      parseInt(character1.style.gridRow) === 3) ||
+    (parseInt(character1.style.gridColumn) === 6 &&
+      parseInt(character1.style.gridRow) === 4) ||
+    (parseInt(character1.style.gridColumn) === 6 &&
+      parseInt(character1.style.gridRow) === 5) ||
+    (parseInt(character1.style.gridColumn) === 6 &&
+      parseInt(character1.style.gridRow) === 6) ||
+    (parseInt(character1.style.gridColumn) === 7 &&
+      parseInt(character1.style.gridRow) === 1) ||
+    (parseInt(character1.style.gridColumn) === 7 &&
+      parseInt(character1.style.gridRow) === 3) ||
+    (parseInt(character1.style.gridColumn) === 7 &&
+      parseInt(character1.style.gridRow) === 4) ||
+    (parseInt(character1.style.gridColumn) === 8 &&
+      parseInt(character1.style.gridRow) === 2) ||
+    (parseInt(character1.style.gridColumn) === 8 &&
+      parseInt(character1.style.gridRow) === 4) ||
+    (parseInt(character1.style.gridColumn) === 8 &&
+      parseInt(character1.style.gridRow) === 6)
+  ) {
+    hearts()
+    console.log('lvl2 hit')
+    failWindowLvl2.style.display = 'block'
   } else {
-    console.log('not working')
+    console.log('lvl2 error')
   }
-  //winFunction1()
-  console.log('row ' + character1.style.gridRow)
-  console.log('column ' + character1.style.gridColumn)
+}
+
+let moveCharct1 = 1
+const lvl2Move = () => {
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      character1.style.gridColumn =
+        parseInt(character1.style.gridColumn) - moveCharct1
+    } else if (e.key === 'ArrowRight') {
+      character1.style.gridColumn =
+        parseInt(character1.style.gridColumn) + moveCharct1
+    } else if (e.key === 'ArrowUp') {
+      character1.style.gridRow =
+        parseInt(character1.style.gridRow) - moveCharct1
+    } else if (e.key === 'ArrowDown') {
+      character1.style.gridRow =
+        parseInt(character1.style.gridRow) + moveCharct1
+    } else {
+      console.log('not working')
+    }
+    winFuctionLvl2()
+    console.log('lvl2 row ' + character1.style.gridRow)
+    console.log('lvl2 column ' + character1.style.gridColumn)
+  })
+}
+
+againButtonLvl2.addEventListener('click', () => {
+  failWindowLvl2.style.display = 'none'
+  character1.style.gridColumn = 1
+  character1.style.gridRow = 4
 })
