@@ -217,11 +217,13 @@ makeGridLvl2()
 
 const hearts1 = () => {
   if (live1.style.display != 'none') {
+    console.log('-1live')
     live1.style.display = 'none'
   } else if (live2.style.display === 'none' && live1.style.display === 'none') {
     live3.style.display = 'none'
     lastWindow.style.display = 'block'
-  } else if (live1.style.dispaly != 'block') {
+  } else if (live1.style.dispaly === 'none') {
+    console.log('-2lives')
     live2.style.display = 'none'
   } else {
     console.log('something went wrong')
@@ -287,9 +289,9 @@ const winFuctionLvl2 = () => {
     (parseInt(character1.style.gridColumn) === 8 &&
       parseInt(character1.style.gridRow) === 6)
   ) {
-    hearts1()
     console.log('lvl2 hit')
     failWindowLvl2.style.display = 'block'
+    hearts1()
   } else {
     console.log('lvl2 error')
   }
@@ -375,7 +377,7 @@ const makeGridLvl3 = () => {
 makeGridLvl3()
 
 const hearts3 = () => {
-  if (live1.style.display != 'none') {
+  if (live1.style.display === 'block') {
     console.log('-1live')
     live1.style.display = 'none'
   } else if (live2.style.display === 'none' && live1.style.display === 'none') {
