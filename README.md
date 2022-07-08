@@ -3,7 +3,8 @@
 ## For project 1
 
 Game for project1
-Sweet Pea in the maze, help character to go through the maze don't lose your lifes !
+Sweet Pea in the maze, help character to go through the maze don't lose your lives and have fun!
+2Level game with a start screen.
 
 #### Trello link with wireframe in it :
 
@@ -11,13 +12,13 @@ Sweet Pea in the maze, help character to go through the maze don't lose your lif
 
 ### **_*Description*_**
 
-- Maze game starts with a Start banner window
-- After click start we see maze
+- Maze game starts with a Start page
+- After click 'Start Game' on a start screen we see maze
 - Control of the character work through arrow buttons
 - Goals: not to hit wall and get to the finish line
-- Every hit = 'start again' to restart lvl and cost you one 'heart'
+- Every hit brings 'start again' window to restart lvl and cost you one 'heart'
   ![Image](/322863-200%20copy.png)
-- If you out of 'hearts' well we can start from the beggining with 3 lives
+- If you out of 'hearts' you will se end game window that brings you to 'Strat' page, where you can start from the beggining with 3 lives
   ![Image](/IMG_0275.GIF)
 
 # materials:
