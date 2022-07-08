@@ -88,7 +88,6 @@ const winFunction = () => {
   ) {
     console.log('win')
     winWindow.style.display = 'block'
-    // return winFunction
   } else if (
     (parseInt(character.style.gridColumn) === 1 &&
       parseInt(character.style.gridRow) === 2) ||
@@ -216,6 +215,19 @@ const makeGridLvl2 = () => {
 }
 makeGridLvl2()
 
+const hearts1 = () => {
+  if (live1.style.display != 'none') {
+    live1.style.display = 'none'
+  } else if (live2.style.display === 'none' && live1.style.display === 'none') {
+    live3.style.display = 'none'
+    lastWindow.style.display = 'block'
+  } else if (live1.style.dispaly != 'block') {
+    live2.style.display = 'none'
+  } else {
+    console.log('something went wrong')
+  }
+}
+
 const winFuctionLvl2 = () => {
   if (
     parseInt(character1.style.gridColumn) === 8 &&
@@ -275,7 +287,7 @@ const winFuctionLvl2 = () => {
     (parseInt(character1.style.gridColumn) === 8 &&
       parseInt(character1.style.gridRow) === 6)
   ) {
-    hearts()
+    hearts1()
     console.log('lvl2 hit')
     failWindowLvl2.style.display = 'block'
   } else {
@@ -311,4 +323,133 @@ againButtonLvl2.addEventListener('click', () => {
   failWindowLvl2.style.display = 'none'
   character1.style.gridColumn = 1
   character1.style.gridRow = 4
+})
+
+nextLvlButton2 = document.querySelector('#nextLvl2')
+
+nextLvlButton2.addEventListener('click', () => {
+  winWindowLvl2.style.display = 'none'
+  board1.style.display = 'none'
+  character1.style.display = 'none'
+  lvl.innerText = 'Level 3'
+  board3.style.display = 'grid'
+  lvl3Move()
+})
+/////level3//////
+
+const board3 = document.querySelector('#boardLvl3')
+const character3 = document.querySelector('#characterLvl3')
+character3.style.gridColumn = 1
+character3.style.gridRow = 4
+const winWindowLvl3 = document.querySelector('#winLevel3')
+const failWindowLvl3 = document.querySelector('#failLevel3')
+
+let boardGrid3 = [
+  [1, 2, 0, 4, 5, 6, 7, 8, 9],
+  [9, 2, 0, 4, 0, 6, 0, 16, 0],
+  [17, 2, 19, 20, 0, 22, 23, 24, 9],
+  [0, 0, 0, 4, 0, 30, 0, 32, 9],
+  [33, 2, 0, 4, 5, 38, 0, 0, 9],
+  [41, 42, 0, 0, 0, 46, 0, 48, 9],
+  [49, 50, 51, 0, 0, 0, 0, 56, 9],
+  [1, 2, 3, 4, 0, 6, 7, 8, 9]
+]
+const makeGridLvl3 = () => {
+  for (let i of boardGrid3) {
+    for (let j of i) {
+      let square3 = document.createElement('div')
+      square3.innerHTML = j
+      square3.className = 'square3'
+      board3.appendChild(square3)
+      //board.appendChild(character1)
+      if (j === 0) {
+        square3.id = 'maze3'
+      } else if (j === 'fin3') {
+        square3.id = 'fin3'
+      } else {
+        square3.id = 'wall3'
+      }
+    }
+  }
+}
+makeGridLvl3()
+
+const hearts3 = () => {
+  if (live1.style.display != 'none') {
+    console.log('-1live')
+    live1.style.display = 'none'
+  } else if (live2.style.display === 'none' && live1.style.display === 'none') {
+    live3.style.display = 'none'
+    lastWindow.style.display = 'block'
+  } else if (live1.style.dispaly === 'none') {
+    console.log('-2lives')
+    live2.style.display = 'none'
+  } else {
+    console.log('something went wrong')
+  }
+}
+
+winFuctionLvl3 = () => {
+  if (
+    parseInt(character3.style.gridColumn) === 9 &&
+    parseInt(character3.style.gridRow) === 2
+  ) {
+    console.log('lvl3 win')
+    winWindowLvl3.style.display = 'block'
+  } else if (
+    (parseInt(character3.style.gridColumn) === 1 &&
+      parseInt(character3.style.gridRow) === 2) ||
+    (parseInt(character3.style.gridColumn) === 1 &&
+      parseInt(character3.style.gridRow) === 6) ||
+    (parseInt(character3.style.gridColumn) === 1 &&
+      parseInt(character3.style.gridRow) === 8) ||
+    (parseInt(character3.style.gridColumn) === 3 &&
+      parseInt(character3.style.gridRow) === 8) ||
+    (parseInt(character3.style.gridColumn) === 5 &&
+      parseInt(character3.style.gridRow) === 1) ||
+    (parseInt(character3.style.gridColumn) === 7 &&
+      parseInt(character3.style.gridRow) === 8) ||
+    (parseInt(character3.style.gridColumn) === 9 &&
+      parseInt(character3.style.gridRow) === 6) ||
+    (parseInt(character3.style.gridColumn) === 9 &&
+      parseInt(character3.style.gridRow) === 4)
+  ) {
+    hearts3()
+    failWindowLvl3.style.display = 'block'
+  } else {
+    console.log('error lvl3')
+  }
+}
+
+let moveCharct3 = 2
+const lvl3Move = () => {
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      character3.style.gridColumn =
+        parseInt(character3.style.gridColumn) - moveCharct3
+    } else if (e.key === 'ArrowRight') {
+      character3.style.gridColumn =
+        parseInt(character3.style.gridColumn) + moveCharct3
+    } else if (e.key === 'ArrowUp') {
+      character3.style.gridRow =
+        parseInt(character3.style.gridRow) - moveCharct3
+    } else if (e.key === 'ArrowDown') {
+      character3.style.gridRow =
+        parseInt(character3.style.gridRow) + moveCharct3
+    } else {
+      console.log('not working')
+    }
+    winFuctionLvl3()
+    console.log('lvl3 row ' + character3.style.gridRow)
+    console.log('lvl3 column ' + character3.style.gridColumn)
+  })
+}
+// lvl3Move()
+
+againButtonLvl3 = document.querySelector('#againLevel3')
+
+againButtonLvl3.addEventListener('click', () => {
+  failWindowLvl3.style.display = 'none'
+  character3.style.gridColumn = 1
+  character3.style.gridRow = 4
 })

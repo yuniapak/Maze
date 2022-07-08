@@ -107,6 +107,12 @@ h4{
     height: 55px;
     z-index: 1;
 }
+#characterLvl3{
+    position:absolute;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+}
 :root{
     --grid-columns: 1;
     --grid-rows: 1;
@@ -134,6 +140,19 @@ h4{
     margin: 0 0 50px 0;
     color: white;
 }
+#boardLvl3{
+    overflow: hidden;
+    position:relative;
+    display: none;
+    height:500px;
+    width:500px;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    border: 15px solid rgb(117, 146, 118);
+    background: rgb(160, 135, 160);
+    margin: 0 0 50px 0;
+    color: white;
+}
+
 .square{
     padding: 1em;
     border: 1px solid rgba(58, 39, 58,0.3);
@@ -146,6 +165,12 @@ h4{
     text-align: center;
     color:rgba(58, 39, 58, 0)
 }
+.square3{
+    padding: 1em;
+    border: 1px solid rgba(58, 39, 58,0.3);
+    text-align: center;
+    color:rgba(58, 39, 58, 1)
+}
 #wall{
     border: 1px solid rgba(58, 39, 58,0.3);
     z-index:2;
@@ -157,10 +182,18 @@ h4{
   
     background:rgb(160, 135, 160);
 }
+#wall3{
+    border: 1px solid rgba(58, 39, 58,0.3);
+  
+    background:rgb(160, 135, 160);
+}
 #maze{
     background: rgb(58, 39, 58);
 }
 #maze1{
+    background: rgb(58, 39, 58);
+}
+#maze3{
     background: rgb(58, 39, 58);
 }
 #fin{
@@ -182,11 +215,17 @@ h4{
     align-items: center;
 }
 #win{
-    display: 'block';
+  
     height:180px;
     width: 300px;
 }
 #winLevel2{
+    height:180px;
+    width: 300px;
+   
+}
+#winLevel3{
+ 
     height:180px;
     width: 300px;
     font-size: 40px;
